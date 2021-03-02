@@ -10,7 +10,7 @@ def operator(op, op1, op2):
         return op1 + op2
     else:
         return op1 - op2
-# Pasamos la expresion prefija a posfija
+# Pasamos la expresion infija a posfija
 def parsePostfix(regex):
     dic = {}
     dic["*"] = 3
@@ -23,7 +23,7 @@ def parsePostfix(regex):
     tokenList = regex.split()
 
     for token in tokenList:
-        if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+        if token.isnumeric():
             postfixList.append(token)
         elif token == '(':
             stack.push(token)
@@ -47,7 +47,7 @@ def postfixEvaluation(postRegex):
     tokenList = postRegex.split()
 
     for token in tokenList:
-        if token in "0123456789":
+        if token.isnumeric():
             operandStack.push(int(token))
         else:
             operand2 = operandStack.pop()

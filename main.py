@@ -1,6 +1,6 @@
 from lib.balanceador import checkBalance
 from lib.calculador import parsePostfix, postfixEvaluation
-regex = '( ( 3 * 2 ) - 3 )'
+regex = ' ( 3 * 2 - 3 ) + 25 '
 
 
 if checkBalance(regex) :
